@@ -1,7 +1,7 @@
 package jp.co.stah.koinsample
 
-class MainViewModel {
+class MainViewModel(private val greetingRepository: GreetingRepository) {
     fun greet(): String {
-        return "こんにちわ"
+        return greetingRepository.greet()
     }
 }
