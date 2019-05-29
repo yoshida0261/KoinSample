@@ -1,6 +1,10 @@
 package jp.co.stah.koinsample
 
-class GreetingRepository {
+interface GreetingRepositoryContract {
+    fun greet(): String
+}
+
+class GreetingRepository : GreetingRepositoryContract{
     fun greet(): String {
         return "こんにちわ from Repository"
     }
