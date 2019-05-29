@@ -17,6 +17,7 @@ class Application : android.app.Application() {
 
     // Koinモジュール
     private val module: Module = module {
-        factory { MainViewModel() }
+        factory { GreetingRepository() }
+        factory { MainViewModel(get()) }
     }
 }
