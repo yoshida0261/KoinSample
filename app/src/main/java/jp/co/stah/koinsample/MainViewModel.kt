@@ -1,7 +1,11 @@
 package jp.co.stah.koinsample
 
-class MainViewModel(private val greetingRepository: GreetingRepository) {
-    fun greet(): String {
+interface MainViewModelContract {
+    fun greet() : String
+}
+
+class MainViewModel(private val greetingRepository: GreetingRepository) : MainViewModelContract {
+    override fun greet(): String {
         return greetingRepository.greet()
     }
 }

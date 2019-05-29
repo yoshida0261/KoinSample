@@ -5,7 +5,7 @@ interface GreetingRepositoryContract {
 }
 
 class GreetingRepository : GreetingRepositoryContract{
-    fun greet(): String {
+    override fun greet(): String {
         return "こんにちわ from Repository"
     }
 }
