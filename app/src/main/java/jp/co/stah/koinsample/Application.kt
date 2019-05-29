@@ -11,13 +11,17 @@ class Application : android.app.Application() {
 
         // Koinコンテナ生成
         startKoin(this, listOf(
-            this.module
+            this.repositoryModule,
+            this.viewModelModule
         ))
     }
 
-    // Koinモジュール
-    private val module: Module = module {
-        factory { GreetingRepository() as GreetingRepositoryContract}
-        factory { MainViewModel(get()) }
+
+    private val repositoryModule: Module = module {
+        factory { GreetingRepository() as GreetingRepositoryContract }
+    }
+
+    private val viewModelModule: Module = module {
+        factory { MainViewModel(get()) as MainViewModelContract }
     }
 }

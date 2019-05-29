@@ -4,7 +4,7 @@ interface MainViewModelContract {
     fun greet() : String
 }
 
-class MainViewModel(private val greetingRepository: GreetingRepository) : MainViewModelContract {
+class MainViewModel(private val greetingRepository: GreetingRepositoryContract) : MainViewModelContract {
     override fun greet(): String {
         return greetingRepository.greet()
     }
