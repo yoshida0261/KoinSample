@@ -1,8 +1,8 @@
 package jp.co.stah.koinsample
 
-import org.koin.android.ext.android.startKoin
-import org.koin.dsl.module.Module
-import org.koin.dsl.module.module
+import org.koin.core.context.startKoin
+import org.koin.core.module.Module
+import org.koin.dsl.module
 
 class Application : android.app.Application() {
 
@@ -10,15 +10,20 @@ class Application : android.app.Application() {
         super.onCreate()
 
         // Koinコンテナ生成
-        startKoin(this, listOf(
-            this.repositoryModule,
-            this.viewModelModule
-        ))
+        startKoin{
+            modules(listOf(
+                repositoryModule,
+                viewModelModule
+            ))
+        }
     }
 
 
     private val repositoryModule: Module = module {
-        factory { GreetingRepository() as GreetingRepositoryContract }
+        factory {
+            GreetingRepository() as GreetingRepositoryContract
+
+        }
     }
 
     private val viewModelModule: Module = module {
